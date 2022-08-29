@@ -1,0 +1,404 @@
+/*--------------- Formulario General --------------- */
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+fieldset {
+  border: 0.125rem solid #83BD75;
+  border-radius: 0.5rem;
+}
+
+.box {
+  border: 0.125rem solid #83BD75;
+  border-radius: 0.5rem;
+}
+
+.vista {
+  box-shadow: 0rem 0rem 0.625rem 0.1875rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.pagination>li>a {
+  background-color: white;
+  color: #5A4181;
+}
+
+small {
+  color: #277FDE !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+}
+
+.icon {
+  font-size: 1.25rem !important
+}
+
+
+legend {
+  font-size: 1rem;
+  color: #4E944F;
+  font-weight: 700;
+  padding: 0.25rem;
+}
+
+.descarga {
+  font-weight: 400 !important;
+  color: #0d6efd;
+}
+
+/*******************************************/
+
+/*--------------- Botones --------------- */
+
+.verde {
+  background: linear-gradient(270deg, #4F9450 0%, #75B665 47.92%, #4F9450 100%) !important;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+  border: 0.125rem solid #4E944F !important;
+
+}
+
+.blanco {
+  background: #FFFFFF !important;
+  color: #4E944F !important;
+  font-weight: 700;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+  border: 0.125rem solid #4E944F !important;
+
+}
+
+.large {
+  width: 9.375rem;
+}
+
+.text-negro {
+  color: black !important;
+}
+
+/********************************************/
+
+/*--------------- Checkboxes --------------- */
+.form-check-input:checked[type=radio] {
+  background-image: none !important;
+}
+
+.form-check-input {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  padding: 0.125rem;
+  background-clip: content-box;
+  border: 0.0625rem solid #bbbbbb !important;
+  background-color: white;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  background-color: #4E944F;
+}
+
+/********************************************/
+
+/* ---------------Inputs General--------------- */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+
+}
+
+.form-control:focus {
+  background: #FFFFFF;
+  border: 0.0625rem solid #4E944F;
+  border-radius: 0.25rem;
+  outline: 0rem;
+  -webkit-appearance: none;
+  box-shadow: none;
+}
+
+/*******************************************/
+
+/* ---------------Input Buscar--------------- */
+.buscar {
+  background: none
+}
+
+.buscar:focus {
+  background-image: none;
+}
+
+.buscar:placeholder-shown {
+
+  background: url(assets/images/buscar.svg)no-repeat;
+  background-size: 1.25rem;
+  background-position: left calc(0.270em + 0.1875rem) center;
+  padding-left: 0.5rem;
+  border: 0.0938rem solid #CBCBCB;
+}
+
+.buscar::placeholder {
+  padding-left: 1.6875rem;
+  font-weight: 400;
+  color: #CBCBCB
+}
+
+.buscar::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.buscar:-moz-placeholder {
+  font-style: italic;
+}
+
+.buscar::-moz-placeholder {
+  font-style: italic;
+}
+
+.buscar:-ms-input-placeholder {
+  font-style: italic;
+}
+
+/*******************************************/
+
+/* ---------------Input File--------------- */
+
+.form-file {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+::-webkit-file-upload-button {
+  font-weight: bold;
+  width: 3.125rem;
+  color: transparent;
+  border: 0.125rem solid white;
+  background-color: white;
+  background-image: url(src/assets/images/file.svg);
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-position: top calc(-0.3em + 0.1875rem) center;
+  background-size: calc(0.95em + 0.575rem) calc(0.95em + 0.575rem);
+  -webkit-appearance: none;
+  float: right;
+  margin: 0 0 0 0.625rem;
+  border-radius: 0.25rem;
+  background-image: -moz-linear-gradient(90deg, #d2d0d0 0%, #f0f0f0 100%);
+
+}
+
+input[type=file] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.1875rem;
+  padding-left: 0.625rem;
+  padding-right: 0.0625rem;
+}
+
+/*******************************************/
+
+/* ---------------Pagination--------------- */
+
+
+/*******************************************/
+/* ---------------Select--------------- */
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-size: 2.375rem;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: -0.125rem;
+  border: 0.0625rem solid #dfdfdf;
+
+}
+
+/*******************************************/
+
+/* ---------------Modals--------------- */
+.btn-warning {
+  color: #fff !important;
+  background-color: #E69138 !important;
+  border-color: #E69138;
+}
+
+.btn-exito {
+  color: #fff !important;
+  background-color: #009E0F !important;
+  border-color: #009E0F;
+}
+
+.btn-danger {
+  color: #fff !important;
+  background-color: #CF2A27 !important;
+  border-color: #CF2A27;
+}
+
+.bal {
+  display: block;
+  width: 6.8125rem;
+}
+
+.success {
+  color: #009E0F;
+}
+
+.alerta {
+  color: #E69138;
+}
+
+.warning {
+  color: #CF2A27;
+}
+
+
+.modal-header {
+  padding: 0rem;
+  padding-right: 0.5rem;
+  padding-left: 0.3rem;
+  border-bottom: 1px solid black;
+}
+
+.modal-footer {
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  border-top: 0;
+}
+
+.modal-body {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+textarea {
+  border: 0.0625rem solid #000000 !important;
+  border-radius: 0.25rem;
+  resize: none;
+}
+
+.verdemodal {
+  background: #4E944F;
+}
+
+.boton {
+  width: 1.125rem;
+  height: 1.125rem;
+  padding: 0.125rem 0.125rem;
+  border-radius: 2.1875rem;
+  font-size: 0.75rem;
+  line-height: 0.33;
+}
+
+.close {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+
+/****************************************/
+
+/* ---------------Tablas--------------- */
+
+
+table {
+  border: 0.0313rem solid #000000 !important;
+
+}
+
+thead {
+  border-bottom: 0.0938rem solid #000000;
+}
+
+td,
+tr {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table {
+  white-space: nowrap;
+}
+
+tbody {
+  font-size: 0.875rem;
+}
+
+.table> :not(:first-child) {
+  border-top: 0;
+
+}
+
+/*******************************************/
+
+
+/* ---------------Media Queries------------ */
+@media only screen and (max-width: 1000px) {
+
+  .alertas {
+    z-index: 20;
+    position: fixed;
+    bottom: 0.3125rem;
+    left: 2%;
+    right: 2%;
+    width: 93%;
+  }
+
+}
+
+.alto .altor {
+  height: 2.625rem
+}
+
+.margin {
+  margin-top: 1.75rem
+}
+
+@media only screen and (max-width: 980px) {
+
+  .alto {
+    height: 0rem;
+  }
+
+  .altor {
+    height: 0.9rem;
+  }
+
+  .margin {
+    margin-top: 1.25rem
+  }
+
+}
+
+
+/*******************************************/

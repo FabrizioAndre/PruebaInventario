@@ -1,0 +1,182 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body box">
+        <div *ngIf="isShown" id="divshow">
+          <form>
+            <div class="row">
+              <div class="col">
+                <h2>Registrar datos de actividad</h2>
+              </div>
+            </div>
+            <div class="ms-md-4 mt-md-4">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm">Seleccionar sector</label>
+                    <select class="form-control" id="provincia" name="provincia" required>
+                      <option>Energía estacionaria
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm">Cargar datos de actividad </label>
+                    <input type="file" class="form-file text-center" accept=".pdf" id="fileinput" required>
+                    <small class="form-text"><i class="fa-solid fa-circle-info"></i> Formato permitido:
+                      .xls ó
+                      .xlsx</small>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm">Seleccionar la insertidumbre</label>
+                    <select class="form-control" id="provincia" name="provincia" required>
+                      <option>Seleccionar
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm">Adjuntar evidencia </label>
+                    <input type="file" class="form-file text-center" accept=".pdf" id="fileinput" required>
+                    <small class="form-text"><i class="fa-solid fa-circle-info"></i> Formato permitido:
+                      .pdf /
+                      Tamaño
+                      máx.: ##
+                      Kb</small>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row ">
+                <div class="col-md-4">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="background:  #949494; color:white">Documentos adjuntos</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+
+                          <div class="d-flex justify-content-between">
+                            <div> Evidencia 1.pdf
+                            </div>
+                            <div> <img src="../assets/images/basura.svg" height="20" /></div>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+
+                          <div class="d-flex justify-content-between">
+                            <div> Evidencia 2.pdf
+                            </div>
+                            <div> <img src="../assets/images/basura.svg" height="20" /></div>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th scope="row"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="float-right">
+              <div class="col  d-flex justify-content-end align-items-end ">
+                <button class="btn btn-success blanco large me-3" type=" button">
+                  Cancelar
+                </button>
+                <button class="btn btn-success verde large" type="button">
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </form>
+          <hr>
+        </div>
+        <div class="col">
+          <h2>Historial de datos de actividad</h2>
+        </div>
+        <div class="row justify-content-between align-items-end">
+          <div class="col-8">
+            <div class="row">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+
+                    <small class="form-text"><i class="fa-solid fa-circle-info"></i> Formatos de datos de
+                      actividad</small>
+                    <br> <br>
+                    <button type="button" usuario class="btn btn-success blanco text-negro
+
+                    ">
+                      <img src="../assets/images/pdf.svg" height="20" /><label class="ms-2">Descargar
+                        FDA</label></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="button" (click)="toggleShow()" usuario class="btn btn-success verde">
+              <i class="fa-solid fa-plus"></i><label class="ms-2">Registrar datos de actividad</label></button>
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive text-center">
+          <table class="table ">
+            <thead>
+              <tr style=" text-align: center;">
+                <th scope="col">Cod. GPC</th>
+                <th scope="col">Sector / Categoría / Sub categoría </th>
+                <th scope="col">Datos
+                  de actividad</th>
+                <th scope="col">Evidencia</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>I</td>
+                <td>Energía estacionaria</td>
+                <td><img src="../assets/images/descargar.svg" height="30" /></td>
+                <td><img src="../assets/images/descargar.svg" height="30" /></td>
+                <td><img src="../assets/images/basura.svg" height="20" /></td>
+              </tr>
+              <tr>
+
+                <td>II</td>
+                <td>Transporte
+                </td>
+                <td><img src="../assets/images/descargar.svg" height="30" /></td>
+                <td><img src="../assets/images/descargar.svg" height="30" /></td>
+                <td><img src="../assets/images/basura.svg" height="20" /></td>
+              </tr>
+              <tr>
+
+                <td>III</td>
+                <td>Desechos</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

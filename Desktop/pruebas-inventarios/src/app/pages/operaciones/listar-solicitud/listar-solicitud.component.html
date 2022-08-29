@@ -1,0 +1,208 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="d-lg-flex align-items-center mt-5 ">
+        <div>
+          <h2>Bandeja de solicitud de usuario</h2>
+        </div>
+        <div class="ms-auto p-2 alto">
+          <app-alert></app-alert>
+        </div>
+      </div>
+
+      <div class="text-center  mt-md-4">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="tabs">
+            <li class="nav-item">
+              <a class="active nav-link active" href="#pendientes" data-bs-toggle="tab">Pendientes de atención</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#historial" data-bs-toggle="tab">Historial</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body lista">
+          <div class="tab-content">
+            <div class="tab-pane active" id="pendientes">
+              <br>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <input type="text" [(ngModel)]="modelA.sRazonSocial" name="modelA.sRazonSocial"
+                      class="form-control buscar" placeholder="Buscar por nombre de municipalidad">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div *ngIf="(listarPendiente | Busqueda: modelA).length > 0">
+                <div class="table-responsive align-middle">
+                  <table class="table">
+                    <thead>
+                      <tr class="align-middle">
+                        <th scope="col">Id</th>
+                        <th scope="col">Fecha<br> registro</th>
+                        <th scope="col">RUC</th>
+                        <th scope="col">Municidalidad</th>
+                        <th scope="col">Tipo de <br> municipalidad</th>
+                        <th scope="col">Ubigeo</th>
+                        <th scope="col">Datos <br>del responsable</th>
+                        <th scope="col">Declaración<br> jurada</th>
+                        <th scope="col">Acción a<br> tomar</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let item of listarPendiente  | Busqueda: modelA; index as i">
+                      <tr [style.display]="i / pageSizeA >= pageA || i / pageSizeA < pageA - 1 ? 'none' : null">
+                        <td> {{ item.nIdSolicitudUsuario }} </td>
+                        <td> {{ item.dFechaRegistro }} </td>
+                        <td> {{ item.sRucMunicipalidad }} </td>
+                        <td style="white-space: normal"> {{ item.sRazonSocial }} </td>
+                        <td> {{ item.sTipoMunicipalidad }} </td>
+                        <td> {{ item.sUbigeoMunicipalidad }} </td>
+                        <td style="text-align: left;"> {{ item.sNombreResponsable }} {{ item.sApellidoPaterno }} {{
+                          item.sApellidoMaterno }}
+                          <br>
+                          E: {{item.sCorreoResponsable}}
+                          <br>
+                          T: {{item.sTelefonoResponsable}}
+                        </td>
+                        <td style="white-space: normal"> <a class="descarga" href="/listar-solicitud"> {{
+                            item.sNombreDocumento }}</a>
+                        </td>
+                        <td>
+                          <div>
+                            <!-- Botón Aceptar -->
+                            <button type="button" class="boton btn btn-success btn-exito me-2" (click)="Mostrar()">
+                              <i class="fa-solid fa-check"></i>
+                            </button>
+
+                            <!-- Botón Observar -->
+                            <button type="button" class="boton btn btn-warning me-2"
+                              (click)="Observar(contentObservar)">
+                              <i class="fa-solid fa-exclamation"></i>
+                            </button>
+
+                            <!-- Botón Rechazar -->
+                            <button type="button" class="boton btn btn-danger me-2" (click)="Rechazar(contentRechazar)">
+                              <i class="fa-solid fa-xmark"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <ngb-pagination [collectionSize]="(listarPendiente | Busqueda: modelA).length" [(page)]="pageA"
+                    [pageSize]="pageSizeA">
+                    <ng-template ngbPaginationPrevious><img src="../assets/images/left.svg" height="8" /></ng-template>
+                    <ng-template ngbPaginationNext><img src="../assets/images/right.svg" height="8" /></ng-template>
+                  </ngb-pagination>
+                </div>
+              </div>
+              <div class="mt-4 mb-4" *ngIf="(listarPendiente | Busqueda: modelA).length <= 0">
+                <h5>No hay resultados para
+                  "{{modelA.sRazonSocial}}".
+                </h5>
+              </div>
+            </div>
+            <div class="tab-pane" id="historial">
+              <br>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <input type="text" class="form-control buscar" [(ngModel)]="modelB.sRazonSocial"
+                      name="modelB.sRazonSocial" placeholder="Buscar por nombre de municipalidad">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div *ngIf="(listarPendiente | Busqueda: modelB).length > 0">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Fecha de registro</th>
+                        <th scope="col">RUC</th>
+                        <th scope="col">Municipalidad</th>
+                        <th scope="col">Estado solicitud</th>
+                        <th scope="col">Declaración jurada </th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let item of listarHistorial  | Busqueda: modelB; index as i">
+                      <tr [style.display]="i / pageSizeB >= pageB || i / pageSizeB < pageB - 1 ? 'none' : null">
+                        <td> {{ item.nIdSolicitudUsuario }} </td>
+                        <td> {{ item.dFechaRegistro }} </td>
+                        <td> {{ item.sRucMunicipalidad }} </td>
+                        <td> {{ item.sRazonSocial }} </td>
+                        <td> {{ item.sEstadoActual }} </td>
+                        <td><a class="descarga" href="/listar-solicitud"> {{ item.sNombreDocumento }}</a> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <ngb-pagination [collectionSize]="totalB" [(page)]="pageB" [pageSize]="pageSizeB">
+                    <ng-template ngbPaginationPrevious><img src="../assets/images/left.svg" height="8" /></ng-template>
+                    <ng-template ngbPaginationNext><img src="../assets/images/right.svg" height="8" /></ng-template>
+                  </ngb-pagination>
+                </div>
+              </div>
+              <div class="mt-4 mb-4" *ngIf="(listarPendiente | Busqueda: modelB).length <= 0">
+
+                <h5>No hay resultados para
+                  "{{modelB.sRazonSocial}}".
+                </h5>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Modal Observar -->
+
+<ng-template #contentObservar let-modalObservar>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title"><i class="fa-solid fa-circle-exclamation alerta"></i> Observar
+      solicitud de usuario</label>
+    <button type="button" class="close" aria-label="Close" (click)="modalObservar.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Ingresar observación:</p>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success blanco" (click)="modalObservar.dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-success verdemodal">Observar</button>
+  </div>
+</ng-template>
+
+<!-- Modal Rechazar -->
+
+<ng-template #contentRechazar let-modalRechazar>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title"><i class="fa-solid fa-circle-xmark warning"></i> Aprobar
+      inventarios
+      GEI</label>
+    <button type="button" class="close" aria-label="Close" (click)="modalRechazar.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Ingresar motivo de rechazo:</p>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success blanco" (click)="modalRechazar.dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-success verdemodal">Rechazar</button>
+  </div>
+</ng-template>

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Usuarios",
+    "children": [
+      {
+        "title": "Bandeja de solicitud de usuario",
+        "redirectTo": "/listar-solicitud"
+      },
+      {
+        "title": "Bandeja de usuario",
+        "redirectTo": "/listar-usuarios"
+      }
+    ]
+  },
+  {
+    "name": "Administración",
+    "children": [
+      {
+        "title": "Factor de emisión",
+        "redirectTo": "/factor-emision"
+      },
+      {
+        "title": "Global Warming Potentials",
+        "redirectTo": "/factor-emision"
+      }
+    ]
+  },
+  {
+    "name": "Gestión de información",
+    "children": [
+      {
+        "title": "Bandeja de periodos",
+        "redirectTo": "/listar-periodo"
+      },
+      {
+        "title": "Resultados GEI",
+        "redirectTo": "/resultado-gei"
+      },
+      {
+        "title": "Evaluar inventarios GEI",
+        "redirectTo": "/evaluar-inventarios"
+      },
+      {
+        "title": "Historial de periodos",
+        "redirectTo": "/historial-periodos"
+      }
+    ]
+  },
+  {
+    "name": "Reportes",
+    "children": [
+      {
+        "title": "",
+        "redirectTo": ""
+      }
+    ]
+  },
+  {
+    "name": "Notificaciones",
+    "children": [
+      {
+        "title": "Bandeja de notificaciones",
+        "redirectTo": "/bandeja-notificaciones"
+      }
+    ]
+  }
+]

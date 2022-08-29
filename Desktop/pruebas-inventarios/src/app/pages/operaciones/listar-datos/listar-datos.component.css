@@ -1,0 +1,16 @@
+@media only screen and (max-width: 950px) {
+  .btn {
+    margin-top: 0.5625rem;
+  }
+
+}
+
+
+tr {
+  text-align: left;
+  vertical-align: middle;
+}
+
+label {
+  font-weight: 500;
+}

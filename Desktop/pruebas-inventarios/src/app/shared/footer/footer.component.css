@@ -1,0 +1,13 @@
+footer {
+  background: #413F42;
+  border-top: 0.875rem solid;
+  border-image: url("src/assets/images/header.png") 30 30 repeat;
+  height: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0rem 0.1875rem 0.5rem;
+
+}
+
+p {
+  font-size: 0.875rem;
+  color: #A6A6A6
+}

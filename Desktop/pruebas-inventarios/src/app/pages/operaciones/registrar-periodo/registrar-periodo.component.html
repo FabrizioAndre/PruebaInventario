@@ -1,0 +1,189 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body">
+        <form>
+          <div class="col">
+            <h2>Registrar periodo</h2>
+          </div>
+          <fieldset class="rounded-5 fiel col-md-8">
+            <legend legend class="float-none w-auto ">Datos generales
+            </legend>
+            <div class="ms-2 me-2 mb-3">
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="col-form-label col-form-label-sm">Año del inventario</label>
+                      <input type="text" class="form-control" placeholder="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="col-form-label col-form-label-sm">Población total </label>
+                      <input type="text" class="form-control" placeholder="" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 ">
+                    <div class="form-group">
+                      <label class="col-form-label col-form-label-sm">Temperatura promedio</label>
+                      <div class="d-flex align-items-center"><input type="text" class="form-control" placeholder="" />
+                        <div class="ms-1"> <label> C°</label></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="col-form-label col-form-label-sm">Tipo de clima</label>
+                      <select class="form-control" id="provincia" name="provincia" required>
+                        <option>Seleccionar</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <br />
+          <fieldset class="rounded-5 fiel">
+            <legend legend class="float-none w-auto ">Fuentes de emisión a reportar
+            </legend>
+            <div class="ms-2 me-2 mb-3">
+              <div class="card-body">
+                <div class="row align-items-end">
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label class="col-form-label col-form-label-sm">Nivel de reporte</label>
+                      <select class="form-control" id="provincia" name="provincia" required>
+                        <option>Basic</option>
+                        <option>Basic+</option>
+                      </select>
+
+
+                    </div>
+                  </div>
+                  <div class="mt-2" style="color: #277FDE;">
+                    <div class="d-flex info small">
+                      <div> <i class="icon fas fa-info-circle"></i> </div>
+                      <div class="ms-1">
+                        Basic: Alcance 1 + Alcance 2 <br>Basic +: Alcance 1 + Alcance 2 + Alcance 3
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+                <br>
+                <div class="row">
+                  <div class="table-responsive ">
+                    <table class="table" cellspacing="0" cellpadding="0">
+                      <thead>
+                        <tr>
+                          <th scope="col">Cod. GPC</th>
+                          <th scope="col">Sector / Categoría </th>
+                          <th scope="col" class="text-center">Alcance 1</th>
+                          <th scope="col" class="text-center">Alcance 2</th>
+                          <th scope="col" class="text-center">Alcance 3</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Energía estacionaria</td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.1</th>
+                          <td>Edifcios residenciales
+                          </td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.2</th>
+                          <td> Edifcios e instalaciones comerciales e institucionales</td>
+                          <td class="text-center"><i class="fa-solid fa-square-check "></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.3</th>
+                          <td> Industrias manufactureras y de construcción
+                          </td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.4</th>
+                          <td>Industrias de energía</td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.5</th>
+                          <td>Actividades de agricultura, forestería y pesca</td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.6</th>
+                          <td>Otras fuentes
+                          </td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i> </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.7</th>
+                          <td> Emisiones fugitivas del carbón
+                          </td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">1.8</th>
+                          <td> Emisiones fugitivas de la distribución de gas natura
+                          </td>
+                          <td class="text-center"><i class="fa-solid fa-square-check"></i></td>
+                          <td> </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <br>
+        <div class="float-right">
+          <div class="col  d-flex justify-content-end align-items-end ">
+            <button class="btn blanco large" routerLink="/listar-periodo" type="button">
+              <i class="fa-solid fa-arrow-left"></i><label class="ms-3"> Volver</label>
+            </button>
+            <button class="btn btn-success ms-3 verde large" routerLink="/listar-periodo" type="button">
+              Guardar
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </form>
+
+</div>

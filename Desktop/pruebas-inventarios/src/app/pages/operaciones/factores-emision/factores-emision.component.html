@@ -1,0 +1,104 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body box">
+        <div class="col">
+          <h2>Factores de emisión</h2>
+        </div>
+        <br>
+        <div class="row justify-content-between align-items-end">
+          <div class="col-8">
+            <div class="row">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control buscar" placeholder="Buscar por nombre de municidalidad">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="table-responsive ">
+            <table class="table" cellspacing="0" cellpadding="0">
+              <thead>
+                <tr>
+                  <th scope="col">Cod. GPC</th>
+                  <th scope="col" class="text-center">Alcance</th>
+                  <th scope="col">Sector / Categoría / Sub categoría</th>
+                  <th scope="col" class="text-center">FE CO2</th>
+                  <th scope="col" class="text-center">FE CH4</th>
+                  <th scope="col" class="text-center">FE N2O</th>
+                  <th scope="col" class="text-center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td></td>
+                  <td>Energía estacionaria</td>
+                  <td class="text-center"></td>
+                  <td class="text-center"></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">1.1</th>
+                  <td></td>
+                  <td>Edifcios residenciales
+                  </td>
+                  <td class="text-center"></td>
+                  <td class="text-center"></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">1.1.1</th>
+                  <td class="text-center">1</td>
+                  <td> Quema de combustibles dentro del territorio</td>
+                  <td class="text-center">0.002</td>
+                  <td class="text-center">0.003</td>
+                  <td class="text-center">0.004</td>
+                  <td class="text-center">
+                    <img src="../assets/images/lapiz.svg" height="20" />
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">1.1.2</th>
+                  <td class="text-center">2</td>
+                  <td>Consumo de electricidad provenientes de la red dentro del territorio
+                  </td>
+                  <td class="text-center">0.002</td>
+                  <td class="text-center">0.003</td>
+                  <td class="text-center">0.004</td>
+                  <td class="text-center">
+                    <div style="white-space: nowrap">
+                      <img class="me-2" src="../assets/images/save.svg" height="20" />
+                      <img src="../assets/images/delete.svg" height="20" />
+                    </div>
+
+                </tr>
+                <tr>
+                  <th scope="row">1.1.3</th>
+                  <td class="text-center">3</td>
+                  <td> Pérdida de distribución y transmisión del consumo de energía de la red</td>
+                  <td class="text-center">0.002</td>
+                  <td class="text-center">0.003</td>
+                  <td class="text-center">0.004</td>
+                  <td class="text-center">
+                    <img src="../assets/images/lapiz.svg" height="20" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <i class="fa-solid fa-pen-to-square"></i> Editar código GPC y nombre de la fuente de emisión
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,323 @@
+<div class="container">
+  <br>
+  <form class="form-signin needs-validation" (ngSubmit)="fnRegistrar(solicitudForm,contentModal)"
+    #solicitudForm="ngForm" novalidate>
+    <div class="card-body vista p-sm-5">
+      <div class="d-lg-flex align-items-center altor">
+        <div class="col-sm-7">
+          <h2>Solicitud de usuario</h2>
+        </div>
+        <div class="col-sm-5">
+          <app-alert></app-alert>
+        </div>
+      </div>
+      <br />
+      <fieldset class="rounded-5 field">
+        <legend legend class="float-none w-auto">Datos de la
+          municipalidad
+        </legend>
+        <div class="ms-2 me-2 pe-2 mb-3">
+          <div class="row align-intems">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">RUC</label>
+                <input name="sRucMunicipalidad" [(ngModel)]="solicitud.sRucMunicipalidad" #sRucMunicipalidad="ngModel"
+                  maxlength="11" minlength="11" pattern="^[0-9]+(.[0-9]{1,2})?$" type="text" class="form-control"
+                  placeholder="" aria-label="" aria-describedby="basic-addon1"
+                  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                  [ngClass]="{ 'is-invalid': solicitudForm.submitted && sRucMunicipalidad.invalid }" required>
+                <small [hidden]="!sRucMunicipalidad.errors?.['pattern'] && !sRucMunicipalidad.errors?.['minlength']"
+                  class="text-danger">
+                  Ingrese un número de RUC válido.
+                </small>
+                <div *ngIf="solicitudForm.submitted && sRucMunicipalidad.invalid">
+                  <small [hidden]="!sRucMunicipalidad.errors?.['required']" class="text-danger">
+                    El RUC es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-4 col-md-4">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm">Razón social</label>
+                <input type="text" class="form-control" placeholder="" #sRazonSocial="ngModel" name="sRazonSocial"
+                  [(ngModel)]="solicitud.sRazonSocial" disabled />
+              </div>
+            </div>
+
+            <!-- Cambio de clases -->
+            <div class="col-xl-2 col-md-4 margin d-flex justify-content-end justify-content-md-start">
+              <div class="form-group">
+
+                <button type="button" class="btn btn-success blanco" [disabled]="sRucMunicipalidad.errors?.['required']"
+                  (click)="fnVerificarRuc()"><span *ngIf="loadingVerifica"
+                    class="spinner-border spinner-border-sm mr-1"></span>
+                  Verificar RUC
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm">Tipo municipalidad</label>
+                <br />
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="crProvincial" id="crProvincial"
+                    [(ngModel)]="institucion.sTipo" value="Provincial" checked="checked" disabled />
+                  <label class=" form-check-label" for="inlineRadio1">Provincial</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="crDistrital" id="crDistrital"
+                    [(ngModel)]="institucion.sTipo" value="Distrital" disabled />
+                  <label class="form-check-label" for="inlineRadio2">Distrital</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm">Ubigeo</label>
+                <input type="text" class="form-control" placeholder="" name="departamento" id="departamento"
+                  [(ngModel)]="institucion.sDepartamento" disabled />
+              </div>
+            </div>
+            <div class="col-md-4 mt-4 align-self-end">
+              <div class="form-group">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="" name="provincia" id="provincia"
+                    [(ngModel)]="institucion.sProvincia" disabled />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mt-4 align-self-end">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="" name="distrito" id="distrito"
+                  [(ngModel)]="institucion.sDistrito" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <fieldset class="rounded-5 field" [disabled]="disabledForm">
+        <legend legend class="float-none w-auto">Datos del responsable de la municipalidad
+        </legend>
+        <div class="ms-2 me-3 mb-3">
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Nombres</label>
+                <input type="text" class="form-control"
+                  onkeydown="return /[a-zA-Z-ZÀ-ÿ. ]*[a-zA-Z-ZÀ-ÿ ]/i.test(event.key)" #sNombre="ngModel" name="sNombre"
+                  [(ngModel)]="solicitud.sNombre" required />
+                <div *ngIf="solicitudForm.submitted && sNombre.invalid">
+                  <small [hidden]="!sNombre.errors?.['required']" class="text-danger">
+                    El nombre es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Apellido paterno</label>
+                <input type="text" class="form-control"
+                  onkeydown="return /[a-zA-Z-ZÀ-ÿ. ]*[a-zA-Z-ZÀ-ÿ ]/i.test(event.key)" #sApePaterno="ngModel"
+                  name="sApePaterno" [(ngModel)]="solicitud.sApellidoPaterno" required />
+                <div *ngIf="solicitudForm.submitted && sApePaterno.invalid">
+                  <small [hidden]="!sApePaterno.errors?.['required']" class="text-danger">
+                    El apellido paterno es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Apellido materno</label>
+                <input type="text" class="form-control"
+                  onkeydown="return /[a-zA-Z-ZÀ-ÿ. ]*[a-zA-Z-ZÀ-ÿ ]/i.test(event.key)" #sApeMaterno="ngModel"
+                  name="sApeMaterno" [(ngModel)]="solicitud.sApellidoMaterno" required />
+                <div *ngIf="solicitudForm.submitted && sApeMaterno.invalid">
+                  <small [hidden]="!sApeMaterno.errors?.['required']" class="text-danger">
+                    El apellido materno es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Área</label>
+                <input type="text" class="form-control"
+                  onkeydown="return /[a-zA-Z-ZÀ-ÿ. ]*[a-zA-Z-ZÀ-ÿ ]/i.test(event.key)" #sArea="ngModel" name="sArea"
+                  [(ngModel)]="solicitud.sArea" required />
+                <div *ngIf="solicitudForm.submitted && sArea.invalid">
+                  <small [hidden]="!sArea.errors?.['required']" class="text-danger">
+                    El área es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Cargo</label>
+                <input type="text" class="form-control"
+                  onkeydown="return /[a-zA-Z-ZÀ-ÿ. ]*[a-zA-Z-ZÀ-ÿ ]/i.test(event.key)" #sCargo="ngModel" name="sCargo"
+                  [(ngModel)]="solicitud.sCargo" required />
+                <div *ngIf="solicitudForm.submitted && sCargo.invalid">
+                  <small [hidden]="!sCargo.errors?.['required']" class="text-danger">
+                    El cargo es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Correo eléctronico</label>
+                <input type="email" class="form-control" [(ngModel)]="solicitud.sCorreo" #sCorreo="ngModel"
+                  name="sCorreo" id="sCorreo" required />
+                <div *ngIf="solicitudForm.submitted && sCorreo.invalid">
+                  <small class="text-danger">
+                    Ingrese un correo electrónico válido.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Teléfono</label>
+                <input type="text" class="form-control" maxlength="9" pattern="^[0-9]+(.[0-9]{1,2})?$" placeholder=""
+                  #sTelefono="ngModel" name="sTelefono" [(ngModel)]="solicitud.sTelefono"
+                  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                  required />
+                <div *ngIf="solicitudForm.submitted && sTelefono.invalid">
+                  <small [hidden]="!sTelefono.errors?.['required']" class="text-danger">
+                    El teléfono es requerido.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <fieldset class="rounded-5 field" [disabled]="disabledForm">
+        <legend legend class="float-none w-auto">Contraseña de usuario
+        </legend>
+        <div class="ms-2 me-3 mb-3">
+          <div class="row align-items-start">
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm asterisk">Contraseña</label>
+
+                <div class="password">
+                  <input [type]="showPassword ? 'text' : 'password'" class="form-control" style="z-index:-100"
+                    type="password" id="newContrasena" name="newContrasena" [(ngModel)]="solicitud.sContrasenia"
+                    #newContrasena="ngModel" minlength="8" maxlength="20"
+                    pattern="(?=.*^[A-Za-z])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" required>
+
+                  <span class="eyeicon colors" (mousedown)="showPassword = !showPassword"
+                    (mouseup)="showPassword = !showPassword"> <i class="fa-solid fa-eye"></i></span>
+
+                </div>
+
+                <small [hidden]="newContrasena.valid || newContrasena.pristine" class="text-danger">
+                  Ingrese una contrasena válida.
+                </small>
+
+                <div class="mt-2">
+                  <div class="d-flex info">
+                    <div><i class="icon fa-solid fa-circle-info"></i></div>
+                    <!-- <div *ngIf="newContrasena.valid"><i class="icon fa-solid fa-circle-check"></i></div>
+                    <div *ngIf="!newContrasena.valid"><i class="icon fa-solid fa-circle-exclamation"></i> </div> -->
+                    <div class="ms-1">
+                      Como mínimo 8 y máximo 20 caracteres<br>
+                      Al menos una letra mayúscula y una letra minúscula<br>
+                      Al menos un número del 0 al 9<br>
+                      Al menos un caracter extraño <br>
+                      No debe iniciar con caracter extraño o número
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+
+                <label class="col-form-label col-form-label-sm asterisk">Confirmar contraseña</label>
+
+                <div class="password">
+                  <input [type]="showPasswordR ? 'text' : 'password'" class="form-control" type="password"
+                    id="verifContrasena" name="verifContrasena" [(ngModel)]="verificaContrasena"
+                    #verifContrasena="ngModel"
+                    pattern="^(?=.*^[A-Za-z])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$" required>
+
+                  <span class="eyeicon colors" (mousedown)="showPasswordR = !showPasswordR"
+                    (mouseup)="showPasswordR = !showPasswordR"> <i class="fa-solid fa-eye"></i></span>
+
+
+                </div>
+
+                <div *ngIf="verifContrasena.touched">
+                  <small *ngIf="solicitud.sContrasenia != verificaContrasena" class="text-danger">
+                    Las contraseñas no coinciden.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <br />
+      <div class="col-md-7">
+        <div class="form-group">
+          <label class="col-form-label col-form-label-sm asterisk ">Declaración jurada</label>
+          <input type="file" class="form-file text-center" (change)="onFileChange($event)" accept=".pdf" id="documento"
+            name="documento" [disabled]="disabledForm" required>
+          <a (click)="fnDescargarFormato();">
+            <label class="info infofor col-form-label col-form-label-sm"><i class="fa-solid fa-circle-arrow-down"></i>
+              Descargar formato de declaración jurada</label></a>
+          <br>
+          <small [hidden]="isValidDoc" class="text-danger">
+            El archivo es requerido.
+          </small>
+        </div>
+      </div>
+
+      <br>
+      <div class="mt-4 barra d-flex justify-content-between align-items-center ">
+        <div class="dato">* Datos obligatorios</div>
+        <button class="btn btn-success verde large" type="submit" [disabled]="loading"><span *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"></span>
+          Guardar
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <ng-template #contentModal let-modalSolicitud>
+    <div class="modal-header">
+      <label class="modal-title" id="modal-basic-title">Solicitud de usuario</label>
+      <button type="button" class="close" aria-label="Close" (click)="modalSolicitud.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <p class="form-text">Su solicitud <strong>Nro. {{solicitud.nIdSolicitudUsuario}}</strong> fue enviada
+        con éxito.
+      </p>
+      <p class="form-text">Espere mientras el administrador del sistema valida la información y envía las credenciales
+        de usuario para su
+        municipalidad.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" ngbAutofocus class="btn btn-sucess blanco" (click)="fnClose(modalSolicitud)">Cerrar</button>
+    </div>
+  </ng-template>
+
+</div>

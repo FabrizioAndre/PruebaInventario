@@ -1,0 +1,161 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body box">
+        <div class="col">
+          <h2>Historial de periodos</h2>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <input type="text" class="form-control buscar" placeholder="Buscar por nombre de municidalidad">
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive text-center ">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Municipalidad</th>
+                <th scope="col">Año</th>
+                <th scope="col">Detalle <br>periodo</th>
+                <th scope="col">Datos de <br>actividad</th>
+                <th scope="col">Inventario <br> GEI</th>
+                <th scope="col">Reinicio</th>
+                <th scope="col">Historial <br>estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>M. de Lima</td>
+                <td>2020</td>
+                <td><img src="../assets/images/ver.svg" height="20" /></td>
+                <td><img src="../assets/images/tabla.svg" height="20" /></td>
+                <td>RepMSI_InventarioGEI_\n2020.pdf</td>
+                <td>
+                  <!-- Botón Reaperturar -->
+                  <button type="button" class="btn btn-success blanco"
+                    (click)="Reiniciar(contentReiniciar)">Reiniciar</button>
+                </td>
+                <td>
+                  <!-- Botón Historial -->
+                  <span type="button" (click)="Historial(contentHistorial)"> <i
+                      class="fa-solid icon fa-clock-rotate-left"></i>
+                  </span>
+
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>M. de San Isidro
+                </td>
+                <td>2021</td>
+                <td><img src="../assets/images/ver.svg" height="20" /></td>
+                <td><img src="../assets/images/tabla.svg" height="20" /></td>
+                <td>RepMSI_InventarioGEI_\n2021.pdf</td>
+                <td>
+                  <!-- Botón Reaperturar -->
+                  <button type="button" class="btn btn-success blanco"
+                    (click)="Reiniciar(contentReiniciar)">Reiniciar</button>
+                </td>
+                <td>
+                  <!-- Botón Historial -->
+                  <span type="button" (click)="Historial(contentHistorial)"> <i
+                      class="fa-solid icon fa-clock-rotate-left"></i>
+                  </span>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <div class="text-center">
+          <nav>
+            <div class="text-center">
+              <ul class="pagination justify-content-center">
+                <li class=" page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <img src="../assets/images/left.svg" height="8" />
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <img src="../assets/images/right.svg" height="8" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<!-- Modal Reaperturar -->
+<ng-template #contentReiniciar let-modalSolicitud>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title">Reaperturar periodo</label>
+  </div>
+  <div class="modal-body">
+    <label>Municipalidad de San Isidro <br>Año: 2021 <br>Ingresar motivo de reapertura</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success blanco" (click)="modalSolicitud.dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-success verdemodal">Reaperturar</button>
+  </div>
+</ng-template>
+<!-- Modal Historial -->
+
+<ng-template #contentHistorial let-modalHistorial>
+  <div class="modal-header">
+    <label class="modal-title" id="modal-basic-title">Historial estado del periodo</label>
+    <button type="button" class="close" aria-label="Close" (click)="modalHistorial.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Motivo</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Aprobado</td>
+            <td></td>
+            <td>DocAprob_MSI.pdf</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Reaperturado</td>
+            <td>Solicitud de la municipalidad para completar datos.</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</ng-template>

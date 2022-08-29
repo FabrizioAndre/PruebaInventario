@@ -1,0 +1,94 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body box">
+        <div class="col">
+          <h2>Bandeja de usuarios</h2>
+        </div>
+        <br>
+        <div class="row justify-content-between align-items-center">
+          <div class="col">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+
+                  <input type="text" name="search" class="form-control buscar"
+                    Placeholder="Buscar por nombre de municidalidad" />
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto"><img src="../assets/images/paper.svg" alt="..." height="30" /> Descargar usuarios
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive text-center">
+          <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Municipalidad</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Estado</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>M. de San Isidro</td>
+                <td>20130534211</td>
+                <td>jvelazques@correo.com</td>
+                <td>963258741</td>
+                <td>Activo</td>
+                <td style="white-space: nowrap">
+                  <img src="../assets/images/lapiz.svg" height="20" />
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>M. de San Miguel </td>
+                <td>20143625843</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="white-space: nowrap">
+                  <img class="me-2" src="../assets/images/save.svg" height="20" />
+                  <img src="../assets/images/delete.svg" height="20" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div class="text-center">
+            <nav>
+              <div class="text-center">
+                <ul class="pagination justify-content-center">
+                  <li class=" page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <img src="../assets/images/left.svg" height="8" />
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <img src="../assets/images/right.svg" height="8" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

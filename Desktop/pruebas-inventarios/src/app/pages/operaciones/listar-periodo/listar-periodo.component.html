@@ -1,0 +1,97 @@
+<div class="container">
+  <br>
+  <form>
+    <div class="vista card-body">
+      <app-menu></app-menu>
+      <div class="card-body box">
+        <div class="col">
+          <h2>Bandeja de periodos de cálculo</h2>
+        </div>
+        <br>
+        <div class="row justify-content-between align-items-center">
+          <div class="col">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <input type="text" class="form-control buscar" placeholder="Buscar por año
+                      ">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="auto"><button type="button" routerLink="/registrar-periodo" usuario
+              class=" btn btn-success verde">
+              <i class="fa-solid fa-plus"></i><label class="ms-2">Nuevo
+                periodo</label></button>
+          </div>
+        </div>
+        <br>
+        <div class="table-responsive text-center">
+          <table class="table ">
+            <thead>
+              <tr class="align-middle">
+                <th scope="col">Id</th>
+                <th scope="col">Año</th>
+                <th scope="col">Fecha
+                  inicio</th>
+                <th scope="col">Fecha<br>
+                  fin</th>
+                <th scope="col">Estado
+                  actual</th>
+                <th scope="col">Ver/Editar</th>
+                <th scope="col">Datos de<br>
+                  actividad</th>
+                <th scope="col">Reporte GEI
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>2020</td>
+                <td>31/03/2021</td>
+                <td>15/04/2021 </td>
+                <td>Aprobado</td>
+                <td><img src="../assets/images/ver.svg" height="20" /></td>
+                <td><a routerLink="/listar-datos"><img src="../assets/images/tabla.svg" height="20" /></a></td>
+                <td>Rep_InventarioGEI_2020.pdf</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>2020</td>
+                <td>31/03/2021</td>
+                <td>15/04/2021 </td>
+                <td>Aprobado</td>
+                <td><img src="../assets/images/ver.svg" height="20" /></td>
+                <td><a routerLink="/listar-datos"><img src="../assets/images/tabla.svg" height="20" /></a></td>
+                <td>Rep_InventarioGEI_2020.pdf</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+        <div class="text-center">
+          <nav>
+            <div class="text-center">
+              <ul class="pagination justify-content-center">
+                <li class=" page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <img src="../assets/images/left.svg" height="8" />
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <img src="../assets/images/right.svg" height="8" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

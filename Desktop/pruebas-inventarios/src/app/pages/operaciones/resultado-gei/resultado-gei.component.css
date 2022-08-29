@@ -1,0 +1,18 @@
+.col0 {
+  border: 0.0625rem solid #413F42;
+  border-radius: 0.25rem 0.25rem 0 0;
+  background-color: #4E944F;
+  color: white
+}
+
+.table-header {
+  border-top: 0.0625rem solid white !important;
+  border-left: 0.0625rem solid white !important;
+}
+
+.caja {
+  border-image: initial;
+  border: 0.0625rem solid black;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+}
